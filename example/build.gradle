@@ -31,7 +31,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.github.smartsatu:android-loading-button-widget:v0.0.1(1)'
-    kapt "androidx.databinding:databinding-compiler:3.3.0-alpha05"
+    kapt "androidx.databinding:databinding-compiler:3.3.0-alpha06"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
