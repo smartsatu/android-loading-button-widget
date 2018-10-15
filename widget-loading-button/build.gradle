@@ -7,8 +7,6 @@ group = 'com.github.smartsatu'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.2"
-
 
     defaultConfig {
         minSdkVersion 14
@@ -36,10 +34,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.61"
-    kapt "androidx.databinding:databinding-compiler:3.3.0-alpha10"
+    androidTestImplementation 'androidx.test:runner:1.1.0-beta02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-beta02'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.71"
+    kapt "androidx.databinding:databinding-compiler:3.3.0-alpha13"
 }
 repositories {
     mavenCentral()
