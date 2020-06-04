@@ -14,11 +14,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         tools:context="com.smartsatu.android.LoadingButtonWidgetDemoActivity">
 
         <com.smartsatu.android.widget.LoadingButtonWidget
             android:id="@+id/loadingButtonWidget"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
