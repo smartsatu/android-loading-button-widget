@@ -1,11 +1,13 @@
 package com.smartsatu.android.widget
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ProgressBar
+import com.google.android.material.button.MaterialButton
 
 /**
  * Created by Sergei Kurikalov
@@ -16,6 +18,7 @@ open class LoadingButtonWidget : FrameLayout, View.OnClickListener {
     private lateinit var progress: ProgressBar
     private var text: CharSequence? = null
     private var onClickListener: OnClickListener? = null
+    private var icon: Drawable? = null
 
     constructor(context: Context) : this(context, null)
 
@@ -35,6 +38,7 @@ open class LoadingButtonWidget : FrameLayout, View.OnClickListener {
         progress = findViewById(R.id.progress)
                 ?: throw IllegalStateException("${this::class.java.simpleName} must contain ProgressBar children with id=R.id.progress")
         button.text = this.text?.takeIf { it.isNotBlank() } ?: button.text
+        saveMaterialButtonIcon()
     }
 
     fun getButton(): Button {
@@ -50,12 +54,25 @@ open class LoadingButtonWidget : FrameLayout, View.OnClickListener {
         button.isEnabled = false
         button.text = ""
         progress.visibility = View.VISIBLE
+        saveMaterialButtonIcon()
+    }
+
+    private fun saveMaterialButtonIcon() {
+        if (button is MaterialButton) {
+            with(button as MaterialButton) {
+                this@LoadingButtonWidget.icon = icon
+                icon = null
+            }
+        }
     }
 
     fun stopProgress() {
         button.isEnabled = true
         button.text = text
         progress.visibility = View.GONE
+        if (button is MaterialButton) {
+            (button as MaterialButton).icon = icon
+        }
     }
 
     override fun setOnClickListener(l: OnClickListener?) {
